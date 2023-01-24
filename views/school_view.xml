@@ -1,0 +1,96 @@
+<odoo>
+  <data>
+  <!-- Tree view for school model -->
+    <record id="school_model_view_id" model="ir.ui.view">
+      <field name="name">school.view.tree</field>
+      <field name="model">school.model</field>
+      <field name="arch" type="xml">
+        <tree string="School">
+          <field name="name" />
+          <field name="address" />
+          <field name="phone_number" />
+          <field name="email" />
+          <field name="date_of_creation" />
+        </tree>
+      </field>
+    </record>
+
+
+    <record id="school_model_view_form" model="ir.ui.view">
+      <field name="name">school.model.view.form</field>
+      <field name="model">school.model</field>
+      <field name="arch" type="xml">
+        <form string="School">
+        <header>
+            <button string="Confirm" name="action_confirm" class="oe_hightlight" confirm="Are you sure you want to confirm"/>
+        </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="name" />
+                <field name="address" />
+                <field name="phone_number" />
+              </group>
+              <group>
+                <field name="email" />
+                <field name="date_of_creation" />
+              </group>
+            </group>
+            <notebook>
+              <page string="Classes">
+                <field name="class_ids">
+                  <tree string="">
+                      <field name="name" />
+                      <field name="maximum_number_of_pupil" />
+                      <field name="head_teacher_phone" />
+                      <field name="head_teacher" />
+                      <field name="class_prefect" />
+                  </tree>
+                </field>
+                
+              </page>
+               <page string="Page2">
+                
+              </page>
+               <page string="Page3">
+                
+              </page>
+               <page string="Page4">
+                
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="school_model_view_search" model="ir.ui.view">
+      <field name="name">school.model.view.search</field>
+      <field name="model">school.model</field>
+      <field name="arch" type="xml">
+        <search string="Schools">
+          <field name="name" />
+          <field name="email" />
+          <field name="phone_number" />
+          <field name="address" />
+          <field name="date_of_creation" />
+        </search>
+      </field>
+    </record>
+
+    <record id="school_model_category_action" model="ir.actions.act_window">
+      <field name="name">Schools</field>
+      <field name="res_model">school.model</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[('name', '!=', False), ('phone_number', '!=', False)]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Create Schools</p>
+      </field>
+    </record>
+
+    <menuitem id="schhol_model_parent_menu" name="School Tutorial" sequence="4"/>
+        <menuitem id="sub_menu_mgt" name="Management" parent="schhol_model_parent_menu" action="school_model_category_action" sequence="1"/>
+            <menuitem id="sub_menu_schools" name="Schools" parent="sub_menu_mgt" action="school_model_category_action" sequence="1"/>
+  </data>
+</odoo>

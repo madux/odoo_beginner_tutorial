@@ -1,0 +1,8 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+school_access_right_user,school_model_access_right,model_school_model,odoo_beginner_tutorial.odoo_tutorial_user,1,1,1,0
+school_access_right_base_user,school_model_baseuser_access_right,model_school_model,base.group_user,1,1,1,0
+students_access_right_user,students_model_access_right,model_students_model,base.group_user,1,1,1,1
+teacher_access_right_user,teacher_model_access_right,model_teacher_model,base.group_user,1,1,1,1
+class_access_right_user,class_model_access_right,model_class_model,base.group_user,1,1,1,1
+subject_access_right_user,subject_model_access_right_user,model_subject_model,base.group_user,1,1,1,0
+subject_access_right_manager,subject_model_access_right_manager,model_subject_model,odoo_beginner_tutorial.odoo_tutorial_manager,1,1,1,1

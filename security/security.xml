@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="module_odoo_beginner_tutorial" model="ir.module.category">
+        <field name="name">Odoo tutorial</field>
+        <field name="sequence">90</field>
+    </record>
+
+    <record id="odoo_tutorial_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="odoo_beginner_tutorial.module_odoo_beginner_tutorial"/>
+        <field name="implied_ids" eval="[(4, ref('point_of_sale.group_pos_manager'), ref('base.group_user'))]"/>
+    </record>
+    <record id="odoo_tutorial_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="odoo_beginner_tutorial.module_odoo_beginner_tutorial"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+</odoo>
